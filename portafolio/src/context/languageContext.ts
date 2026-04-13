@@ -48,7 +48,7 @@ export const translations = {
     'contact.form.email': 'Email Address',
     'contact.form.message': 'Your Message',
     'contact.form.submit': 'Send Message',
-    'contact.email': 'hello@alexjohnson.dev',
+    'contact.email': 'raihuerta01@gmail.com',
     'footer.copyright': '© 2026 Victor Huerta. All rights reserved.',
   },
   es: {

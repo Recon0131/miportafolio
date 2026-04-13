@@ -63,8 +63,9 @@ export function Hero() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => scrollToSection('projects')}
-                className="px-8 py-4 bg-gradient-to-r from-primary to-accent text-white rounded-xl flex items-center gap-2 shadow-lg shadow-primary/25"
+                className="px-8 py-4 bg-gradient-to-r from-primary to-accent text-white rounded-xl flex items-center gap-2 shadow-lg shadow-primary/25 cursor-pointer"
                 style={{ fontWeight: 600 }}
+
               >
                 {t('hero.cta.primary')}
                 <ArrowRight className="w-5 h-5" />
@@ -74,7 +75,7 @@ export function Hero() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => scrollToSection('contact')}
-                className="px-8 py-4 bg-secondary text-foreground rounded-xl border border-border"
+                className="px-8 py-4 bg-secondary text-foreground rounded-xl border border-border cursor-pointer"
                 style={{ fontWeight: 600 }}
               >
                 {t('hero.cta.secondary')}
@@ -116,7 +117,7 @@ export function Hero() {
           >
             <div className="relative w-full h-[500px] rounded-3xl bg-gradient-to-br from-primary/20 to-accent/20 backdrop-blur-xl border border-border overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10" />
-              <img src={heroImage} alt="Hero" className="m-auto " />
+              <img src={heroImage} alt="Hero" className="m-auto h-full rounded-3xl" />
               
             </div>
           </motion.div>

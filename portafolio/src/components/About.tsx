@@ -1,6 +1,7 @@
 import { useLanguage } from '../hooks/useLanguage';
 import { motion } from 'motion/react';
 import { GraduationCap , BriefcaseBusiness } from 'lucide-react';
+import AboutVideo from '../assets/loop.mp4';
 
 export function About() {
   const { t } = useLanguage();
@@ -68,13 +69,12 @@ export function About() {
                 <div className="w-64 h-64 rounded-full bg-gradient-to-br from-primary to-accent opacity-20 blur-3xl" />
               </div>
               <div className="relative h-full flex items-center justify-center">
-                <motion.div
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-                  className="w-48 h-48 border-4 border-primary/30 rounded-full flex items-center justify-center"
-                >
-                  <div className="w-32 h-32 border-4 border-accent/30 rounded-full" />
-                </motion.div>
+                
+                
+                <video autoPlay muted loop>
+                  <source src={AboutVideo}/>
+                </video>
+
               </div>
             </div>
           </motion.div>

@@ -4,6 +4,10 @@ import { ThemeProvider } from './context/ThemeProvider';
 import { Navigation } from './components/Navigation';
 import { Hero } from './components/Hero';
 import { About } from './components/About';
+import { ScrollToTop } from './components/ScrollToTop';
+import { Projects } from './components/Projects';
+import { Services } from './components/Services';
+import { Contact } from './components/Contact';
 
 function App() {
   return (
@@ -14,6 +18,10 @@ function App() {
           <main>
             <Hero/>
             <About />
+            <Projects />
+            <Services />
+            <Contact />
+            <ScrollToTop />          
           </main>
         </div>
       </LanguageProvider>
