@@ -154,7 +154,7 @@ export function Contact() {
                 type="submit"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="w-full px-8 py-4 bg-gradient-to-r from-primary to-accent text-white rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-primary/25"
+                className="w-full px-8 py-4 bg-gradient-to-r cursor-pointer from-primary to-accent text-white rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-primary/25"
                 style={{ fontWeight: 600 }}
               >
                 {t("contact.form.submit")}

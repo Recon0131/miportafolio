@@ -19,7 +19,7 @@ export function About() {
   const experiences = [
     {
       year: '2026 - Present',
-      title: 'Colaborador Web',
+      title: 'Practicante Desarrollador Web',
       company: 'Consigue Ventas',
       icon: BriefcaseBusiness,
     },
