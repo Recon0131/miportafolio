@@ -55,9 +55,11 @@ export function Navigation() {
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-background/80 backdrop-blur-lg border-b border-border shadow-sm'
-          : 'bg-transparent'
+        isMobileMenuOpen
+          ? 'bg-background'
+          : isScrolled
+            ? 'bg-background/80 backdrop-blur-lg border-b border-border shadow-sm'
+            : 'bg-transparent'
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -140,7 +142,7 @@ export function Navigation() {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              className="md:hidden border-t border-border overflow-hidden"
+              className="md:hidden border-t border-border overflow-hidden bg-background"
             >
               <div className="py-4 space-y-2">
                 {navLinks.map((link) => (
