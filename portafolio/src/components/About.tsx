@@ -10,7 +10,7 @@ export function About() {
     { name: 'React & Next.js', level: 90 },
     { name: 'TypeScript', level: 90 },
     { name: 'Node.js & Express', level: 90 },
-    { name: 'MySQL & MongoDB', level: 87 },
+    { name: 'MySQL & MongoDB', level: 90 },
     { name: 'C# & .NET Framework', level: 50 },
     { name: 'Python', level: 50 },
 
