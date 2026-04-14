@@ -58,7 +58,7 @@ export function Projects() {
  
 
   return (
-    <section id="projects" className="py-32">
+    <section id="projects" className="py-32" style={{ scrollMarginTop: '80px' }}>
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

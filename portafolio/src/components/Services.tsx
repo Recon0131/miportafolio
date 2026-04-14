@@ -27,7 +27,7 @@ export function Services() {
   ];
 
   return (
-    <section id="services" className="py-32 bg-secondary/30">
+    <section id="services" className="py-32 bg-secondary/30" style={{ scrollMarginTop: '80px' }}>
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

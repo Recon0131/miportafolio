@@ -25,13 +25,13 @@ export function About() {
     },
     {
       year: '2022 - En curso',
-      title: 'Ingenieering System Student',
+      title: 'Ingenieria en Sistema de Información',
       company: 'Universidad Peruana de Ciencias Aplicadas',
       icon: GraduationCap,
     },
     {
       year: '2020',
-      title: 'Autonomic Learning',
+      title: 'Aprendizaje Autónomo',
       company: 'Udemy, Youtube, Documentation',
       icon: GraduationCap,
     }
@@ -39,7 +39,7 @@ export function About() {
   ];
 
   return (
-    <section id="about" className="py-32 bg-secondary/30">
+    <section id="about" className="py-32 bg-secondary/30" style={{ scrollMarginTop: '80px' }}>
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

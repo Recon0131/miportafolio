@@ -23,7 +23,7 @@ export function Hero() {
   };
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
+    <section id="home" className="relative min-h-screen flex items-center overflow-hidden" style={{ scrollMarginTop: '80px' }}>
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-accent/5 to-transparent" />
 
       <div className="absolute inset-0 opacity-30">

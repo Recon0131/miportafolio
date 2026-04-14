@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, type MouseEvent } from 'react';
 import { Moon, Sun, Languages, Menu, X } from 'lucide-react';
 import { useTheme } from '../hooks/useTheme';
 import { useLanguage } from '../hooks/useLanguage';
@@ -15,22 +15,19 @@ export function Navigation() {
       setIsScrolled(window.scrollY > 20);
     };
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      const offset = 80;
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - offset;
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
-      setIsMobileMenuOpen(false);
-    }
-  };
+    const handleResize = () => {
+      if (window.innerWidth >= 768) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   const navLinks = [
     { key: 'nav.home', id: 'home' },
@@ -39,6 +36,18 @@ export function Navigation() {
     { key: 'nav.services', id: 'services' },
     { key: 'nav.contact', id: 'contact' },
   ];
+
+  const handleSectionClick = (event: MouseEvent<HTMLAnchorElement>, id: string) => {
+    event.preventDefault();
+    const element = document.getElementById(id);
+    if (element) {
+      setIsMobileMenuOpen(false);
+      setTimeout(() => {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        window.history.replaceState(null, '', `#${id}`);
+      }, 0);
+    }
+  };
 
   return (
     <motion.nav
@@ -53,34 +62,33 @@ export function Navigation() {
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={() => scrollToSection('home')}
+          <a
+            href="#home"
+            onClick={(event) => handleSectionClick(event, 'home')}
             className="text-2xl tracking-tight"
             style={{ fontWeight: 700 }}
           >
             <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
               VH
             </span>
-          </motion.button>
+          </a>
 
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
-              <motion.button
+              <a
                 key={link.id}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => scrollToSection(link.id)}
+                href={`#${link.id}`}
+                onClick={(event) => handleSectionClick(event, link.id)}
                 className="text-foreground/70 hover:text-foreground transition-colors cursor-pointer"
               >
                 {t(link.key)}
-              </motion.button>
+              </a>
             ))}
           </div>
 
           <div className="flex items-center gap-4">
             <motion.button
+              type="button"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               onClick={toggleLanguage}
@@ -94,6 +102,7 @@ export function Navigation() {
             </motion.button>
 
             <motion.button
+              type="button"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               onClick={toggleTheme}
@@ -108,11 +117,13 @@ export function Navigation() {
             </motion.button>
 
             <motion.button
+              type="button"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="md:hidden p-2 rounded-lg hover:bg-secondary transition-colors"
               aria-label="Toggle menu"
+              aria-expanded={isMobileMenuOpen}
             >
               {isMobileMenuOpen ? (
                 <X className="w-6 h-6" />
@@ -133,14 +144,14 @@ export function Navigation() {
             >
               <div className="py-4 space-y-2">
                 {navLinks.map((link) => (
-                  <motion.button
+                  <a
                     key={link.id}
-                    whileTap={{ scale: 0.95 }}
-                    onClick={() => scrollToSection(link.id)}
+                    href={`#${link.id}`}
+                    onClick={(event) => handleSectionClick(event, link.id)}
                     className="block w-full text-left px-4 py-3 text-foreground/70 hover:text-foreground hover:bg-secondary/50 transition-colors rounded-lg"
                   >
                     {t(link.key)}
-                  </motion.button>
+                  </a>
                 ))}
               </div>
             </motion.div>

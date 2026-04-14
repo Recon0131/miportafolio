@@ -63,7 +63,7 @@ export function Contact() {
   ];
 
   return (
-    <section id="contact" className="py-32 relative overflow-hidden">
+    <section id="contact" className="py-32 relative overflow-hidden" style={{ scrollMarginTop: '80px' }}>
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5" />
 
       <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
